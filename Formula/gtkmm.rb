@@ -11,13 +11,8 @@ class Gtkmm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "600f066eb0843c1af59bce66aa578afde52aa3a5754c42ed7b04445db839f837"
-    sha256 cellar: :any,                 arm64_ventura:  "d664e40ad1a7d3e5dbb9dc05cb36d73f97e5bc4ab71747bf1b08c7d73abeae02"
-    sha256 cellar: :any,                 arm64_monterey: "08400aebd2786edc67d2d6118dd98ea5e3e44ab3269f6fc49a651c7bc29589c3"
-    sha256 cellar: :any,                 sonoma:         "c4aeb2114cd8dc59900af9d10e65c026ff69f3ede03c18dbc1ea655f9f3fc612"
-    sha256 cellar: :any,                 ventura:        "992c80fea122b473d7788fe6733423dc729282fcce37095b204d5363e08b701a"
-    sha256 cellar: :any,                 monterey:       "dde66554a67d936733736fd0c92a372ea01f7fad3ff3407cd2ce516c1332de13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b8ee9aae96d13469d2ca251d59582d5577122d69769f9038e62b1792c08c861"
+    root_url "https://github.com/ownia/homebrew-ownia/releases/download/gtkmm-2.24.5"
+    sha256 cellar: :any, arm64_sonoma: "bb8940d0ab7a334967f0c34079ca70db6e13727f63db260f5b30de9ccbce9bf7"
   end
 
   depends_on "pkg-config" => :build
