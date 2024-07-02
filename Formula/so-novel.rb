@@ -7,7 +7,8 @@ class SoNovel < Formula
 
   bottle do
     root_url "https://github.com/ownia/homebrew-ownia/releases/download/so-novel-1.5.8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "9892438b38a4f3516da8eb338e3a7453eea2d05721de2720d344b2ca2e6746f7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "7e61ad8b7f9ee34ec62cdfb5b7fdcb3b34509b93c5e2030edf4b27551c859920"
   end
 
   depends_on "maven" => :build
