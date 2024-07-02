@@ -2,8 +2,9 @@ class SoNovel < Formula
   desc "Novel download tool"
   homepage "https://github.com/freeok/so-novel"
   url "https://github.com/freeok/so-novel/archive/refs/tags/v1.5.8.tar.gz"
-  sha256 "ee1823d0a2409c48ca124f976df25d751cb23d5355dae43f90c74a0a7fba88a0"
+  sha256 "bce5709bf62d0131d92b01b435f653ee769116da810ef861db505ac241f86d8a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     root_url "https://github.com/ownia/homebrew-ownia/releases/download/so-novel-1.5.8"
