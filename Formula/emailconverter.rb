@@ -5,6 +5,11 @@ class Emailconverter < Formula
   sha256 "a0d8cdfcd169af6340936b9280bd2b178e79f9d496bebdb53b1e49a4d88f378c"
   license "Apache-2.0"
 
+  bottle do
+    root_url "https://github.com/ownia/homebrew-ownia/releases/download/emailconverter-3.0.0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "69f8f0482b82aa3725364dd5bf1961c5c9fa5817d79d838fa0b8f0d5f4c8748f"
+  end
+
   depends_on "openjdk"
 
   def install
