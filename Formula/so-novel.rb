@@ -3,7 +3,7 @@ class SoNovel < Formula
   homepage "https://github.com/freeok/so-novel"
   url "https://github.com/freeok/so-novel/archive/refs/tags/v1.7.0-beta.2.tar.gz"
   sha256 "55e430ac1f0a99822fedb4c329959e0e7b8281e37325993d3ae8d921d2f766d6"
-  license "Apache-2.0"
+  license "AGPL-3.0-only"
 
   bottle do
     root_url "https://github.com/ownia/homebrew-ownia/releases/download/so-novel-1.7.0-beta.2"
