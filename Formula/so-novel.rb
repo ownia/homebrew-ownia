@@ -1,8 +1,8 @@
 class SoNovel < Formula
   desc "Novel download tool"
   homepage "https://github.com/freeok/so-novel"
-  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.7.0-beta.2.tar.gz"
-  sha256 "55e430ac1f0a99822fedb4c329959e0e7b8281e37325993d3ae8d921d2f766d6"
+  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "c513813448a3cfb9341fa35dfcb2903ba5b4a8b3c7158d29a9e9d82cdb5fd254"
   license "AGPL-3.0-only"
 
   bottle do
