@@ -1,8 +1,8 @@
 class SoNovel < Formula
   desc "Novel download tool"
   homepage "https://github.com/freeok/so-novel"
-  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.7.3.tar.gz"
-  sha256 "7b45e322563fb5190483383e664fc9d1d4eb2a7e01b32bd942c35b16213c093f"
+  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.7.4.tar.gz"
+  sha256 "f2811c2d3ecd443ad7fb27aedbe1a69ba3467de9910f8d123cd69253f2e97c03"
   license "AGPL-3.0-only"
 
   bottle do
@@ -17,7 +17,7 @@ class SoNovel < Formula
     # ENV["JAVA_HOME"] = "/opt/homebrew/opt/openjdk@17/"
     ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
     # ENV["PATH"] = "$JAVA_HOME/bin:$PATH"
-    system "mvn", "clean", "package", "-DskipTests"
+    system "mvn", "clean", "package", "-Dmaven.test.skip=true"
     cp "config.ini", "#{prefix}/config.ini"
     cp "target/app-jar-with-dependencies.jar", "#{prefix}/app.jar"
     (prefix/"bin/so-novel").write("#!/bin/bash\njava -Dconfig.file=#{prefix}/config.ini -jar #{prefix}/app.jar\n")
