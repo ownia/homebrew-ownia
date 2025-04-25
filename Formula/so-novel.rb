@@ -20,7 +20,8 @@ class SoNovel < Formula
     system "mvn", "clean", "package", "-Dmaven.test.skip=true"
     cp "config.ini", "#{prefix}/config.ini"
     cp "target/app-jar-with-dependencies.jar", "#{prefix}/app.jar"
-    (prefix/"bin/so-novel").write("#!/bin/bash\njava -Dconfig.file=#{prefix}/config.ini -jar #{prefix}/app.jar\n")
+    (prefix/"bin/so-novel").write("#!/bin/bash\n
+                                  java -Dconfig.file=#{prefix}/config.ini -Denv=prod -jar #{prefix}/app.jar\n")
   end
 
   test do
