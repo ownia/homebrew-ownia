@@ -4,13 +4,7 @@ class SoNovel < Formula
   url "https://github.com/freeok/so-novel/archive/refs/tags/v1.8.4.tar.gz"
   sha256 "491b234fb7c7b167964cf76b385096db55d1def9f50da091d3a4d58e0d8e7541"
   license "AGPL-3.0-only"
-  revision 1
-
-  bottle do
-    root_url "https://github.com/ownia/homebrew-ownia/releases/download/so-novel-1.8.4_1"
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "5e1e41fefdfbb9fd17c1a149ecb38418473c44a93a2306d7a2b03cb289c035b3"
-  end
+  revision 2
 
   depends_on "maven" => :build
   depends_on "openjdk@17" => :build
