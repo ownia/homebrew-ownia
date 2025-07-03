@@ -23,13 +23,14 @@ class SoNovel < Formula
     cp "config.ini", "#{prefix}/config.ini"
     # inreplace "#{prefix}/config.ini", /^active-rules\s*=\s*.*$/, "active-rules = #{prefix}/main-rules.json"
     cp "target/app-jar-with-dependencies.jar", "#{prefix}/app.jar"
+    java = Formula["openjdk@17"].opt_prefix/"bin/java"
     (prefix/"bin/so-novel").write <<~EOS
       #!/bin/bash
       TMP_RULES="$(pwd)/rules"
       mkdir -p "$TMP_RULES"
       cp "#{prefix}/main-rules.json" "$TMP_RULES/"
       trap 'rm -rf "$TMP_RULES"' EXIT
-      java -Dconfig.file=#{prefix}/config.ini -Denv=prod -jar #{prefix}/app.jar
+      #{java} -Dconfig.file=#{prefix}/config.ini -Denv=prod -jar #{prefix}/app.jar
     EOS
   end
 
