@@ -1,8 +1,8 @@
 class SoNovel < Formula
   desc "Novel download tool"
   homepage "https://github.com/freeok/so-novel"
-  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.8.5.tar.gz"
-  sha256 "fa02da24ea54a123cf8187c3e1020b40ce806527ef0ff194214f8ac2d7fdfd6d"
+  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "ab331bffb62c25dd9bb4ae750e5319607697cfd4ae5b4022634b5ca74b0038d9"
   license "AGPL-3.0-only"
 
   bottle do
@@ -19,13 +19,13 @@ class SoNovel < Formula
     # ENV["PATH"] = "$JAVA_HOME/bin:$PATH"
     system "mvn", "clean", "package", "-Dmaven.test.skip=true", "-DjrePath=runtime"
     cp "bundle/rules/main-rules.json", "#{prefix}/main-rules.json"
-    cp "config.ini", "#{prefix}/config.ini"
+    cp "bundle/config.ini", "#{prefix}/config.ini"
     inreplace "#{prefix}/config.ini", /^active-rules\s*=\s*.*$/, "active-rules = #{prefix}/main-rules.json"
     cp "target/app-jar-with-dependencies.jar", "#{prefix}/app.jar"
     java = Formula["openjdk@17"].opt_prefix/"bin/java"
     (prefix/"bin/so-novel").write <<~EOS
       #!/bin/bash
-      #{java} -Dconfig.file=#{prefix}/config.ini -Denv=prod -jar #{prefix}/app.jar
+      #{java} -Dconfig.file=#{prefix}/config.ini -jar #{prefix}/app.jar
     EOS
   end
 
