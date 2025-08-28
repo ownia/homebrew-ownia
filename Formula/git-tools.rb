@@ -8,6 +8,11 @@ class GitTools < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/ownia/git-tools.git", branch: "homebrew-ownia"
 
+  bottle do
+    root_url "https://github.com/ownia/homebrew-ownia/releases/download/git-tools-20250828"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "9c11b5e1c33d1e221c2893cbc98f10b6bac0e9387432118977dedee57f2349fc"
+  end
+
   uses_from_macos "python", since: :catalina
 
   def install
