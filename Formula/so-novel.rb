@@ -6,6 +6,7 @@ class SoNovel < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    rebuild 1
     root_url "https://github.com/ownia/homebrew-ownia/releases/download/so-novel-1.9.0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma: "bf834b1da4ddeb4918b55160230360a1c4072d0daaed8cd69cd0d8f0b17698ff"
   end
@@ -25,7 +26,7 @@ class SoNovel < Formula
     java = Formula["openjdk@17"].opt_prefix/"bin/java"
     (prefix/"bin/so-novel").write <<~EOS
       #!/bin/bash
-      #{java} -Dconfig.file=#{prefix}/config.ini -jar #{prefix}/app.jar
+      #{java} -Dconfig.file=#{prefix}/config.ini -jar #{prefix}/app.jar "$@"
     EOS
   end
 
