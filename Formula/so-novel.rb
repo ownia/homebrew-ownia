@@ -1,8 +1,8 @@
 class SoNovel < Formula
   desc "Novel download tool"
   homepage "https://github.com/freeok/so-novel"
-  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "ab331bffb62c25dd9bb4ae750e5319607697cfd4ae5b4022634b5ca74b0038d9"
+  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.9.1.tar.gz"
+  sha256 "8e68dd116ac9f0ef43cce54f8e594d8da336fcc8d92faadbfbf81ee914cc1b44"
   license "AGPL-3.0-only"
 
   bottle do
@@ -11,8 +11,8 @@ class SoNovel < Formula
     sha256 cellar: :any_skip_relocation, arm64_sonoma: "dedca56c7cd00f6db9a0376b47973f417092c8edd95d6f3c5502bdcc2c6ba46a"
   end
 
-  depends_on "maven" => :build
-  depends_on "openjdk@17" => :build
+  depends_on "maven"
+  depends_on "openjdk@17"
 
   def install
     # ENV["JAVA_HOME"] = "/opt/homebrew/opt/openjdk@17/"
@@ -24,13 +24,16 @@ class SoNovel < Formula
     inreplace "#{prefix}/config.ini", /^active-rules\s*=\s*.*$/, "active-rules = #{prefix}/main-rules.json"
     cp "target/app-jar-with-dependencies.jar", "#{prefix}/app.jar"
     java = Formula["openjdk@17"].opt_prefix/"bin/java"
+    # cli mode can fallback to tui mode
     (prefix/"bin/so-novel").write <<~EOS
       #!/bin/bash
-      #{java} -Dconfig.file=#{prefix}/config.ini -jar #{prefix}/app.jar "$@"
+      #{java} -Dconfig.file=#{prefix}/config.ini -Dmode=cli -jar #{prefix}/app.jar "$@"
     EOS
   end
 
   test do
-    assert shell_output("test -x #{bin}/so-novel")
+    output = shell_output("#{bin}/so-novel -V").strip
+    clean_output = output.gsub(/\e\[[0-9;]*m/, "")
+    assert_equal version.to_s, clean_output
   end
 end
