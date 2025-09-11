@@ -14,6 +14,11 @@ class Lilypond < Formula
     "LPPL-1.3c",
   ]
 
+  bottle do
+    root_url "https://github.com/ownia/homebrew-ownia/releases/download/lilypond-2.25.28"
+    sha256 arm64_sonoma: "4b9e432ab5c0b20ef1af922d15a8c29edc1ce226c9062dd85630955b02c7e797"
+  end
+
   depends_on "autoconf" => :build
   depends_on "bison" => :build # bison >= 2.4.1 is required
   depends_on "fontforge" => :build
