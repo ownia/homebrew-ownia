@@ -1,8 +1,8 @@
 class SoNovel < Formula
   desc "Novel download tool"
   homepage "https://github.com/freeok/so-novel"
-  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "8e68dd116ac9f0ef43cce54f8e594d8da336fcc8d92faadbfbf81ee914cc1b44"
+  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.9.2.tar.gz"
+  sha256 "25f4f02214561aad04a6264881abb8bb8ccbe2d27cc42404443db0d562cdfac1"
   license "AGPL-3.0-only"
 
   bottle do
@@ -26,7 +26,7 @@ class SoNovel < Formula
     # cli mode can fallback to tui mode
     (prefix/"bin/so-novel").write <<~EOS
       #!/bin/bash
-      #{java} -Dconfig.file=#{prefix}/config.ini -Dmode=cli -jar #{prefix}/app.jar "$@"
+      #{java} -Dconfig.file=#{prefix}/config.ini -Dmode=tui -jar #{prefix}/app.jar "$@"
     EOS
   end
 
