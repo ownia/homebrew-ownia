@@ -1,8 +1,8 @@
 class SoNovel < Formula
   desc "Novel download tool"
   homepage "https://github.com/freeok/so-novel"
-  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.9.5.tar.gz"
-  sha256 "41a70815e55e4e6a47af732cb9bbced6196d1c243318feeab2f2bee05bd48553"
+  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.9.6.tar.gz"
+  sha256 "c2b6aa68d2e8bfa3d9d46f49fc1115ac76f38e4f9a77e44d5a888a5105d48fcb"
   license "AGPL-3.0-only"
 
   bottle do
@@ -12,11 +12,6 @@ class SoNovel < Formula
 
   depends_on "maven"
   depends_on "openjdk@21"
-
-  patch do
-    url "https://github.com/freeok/so-novel/commit/ebb12c705f3bf9af750e8b386f34bcbf402cccd4.patch?full_index=1"
-    sha256 "14f8bc52b849a331ba468365de8795597e26b8d39e4add93bd1a5efa46fbdeb3"
-  end
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
