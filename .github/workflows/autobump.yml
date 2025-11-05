@@ -1,0 +1,37 @@
+name: Bump formula and cask on schedule
+
+on:
+  schedule:
+    - cron: '0 16 * * 0-4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  autobump:
+    if: github.repository == 'ownia/homebrew-ownia'
+    env:
+      HOMEBREW_DEVELOPER: 1
+    runs-on: macos-26
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: true
+
+      - name: Configure Git user
+        uses: Homebrew/actions/git-user-config@main
+
+      - name: Bump and open PR
+        id: autobump
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+          HOMEBREW_GIT_COMMITTER_NAME: Weizhao Ouyang
+          HOMEBREW_GIT_COMMITTER_EMAIL: o451686892@gmail.com
+        continue-on-error: true
+        run: |
+          brew bump --no-fork --open-pr --tap ownia/ownia
