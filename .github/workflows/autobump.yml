@@ -26,12 +26,37 @@ jobs:
       - name: Configure Git user
         uses: Homebrew/actions/git-user-config@main
 
+      - name: Get livecheck json
+        id: livecheck
+        run: |
+          brew livecheck --full-name --newer-only --tap ownia/ownia --json > livecheck.json
+          echo "items=$(jq -c . livecheck.json)" >> "$GITHUB_OUTPUT"
+
       - name: Bump and open PR
         id: autobump
         env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_GITHUB_API_TOKEN }}
           HOMEBREW_GIT_COMMITTER_NAME: Weizhao Ouyang
           HOMEBREW_GIT_COMMITTER_EMAIL: o451686892@gmail.com
-        continue-on-error: true
         run: |
-          brew bump --no-fork --open-pr --tap ownia/ownia
+          set -euo pipefail
+
+          json='${{ steps.livecheck.outputs.items }}'
+          echo "$json"
+
+          echo "$json" | jq -c '.[] | select(.version.outdated == true)' |
+          while read -r item; do
+            if echo "$item" | jq -e 'has("formula")' >/dev/null; then
+              name=$(echo "$item" | jq -r '.formula')
+              version=$(echo "$item" | jq -r '.version.latest')
+              echo "bump formula: $name $version"
+              brew bump-formula-pr "$name" --version "$version" --no-browse --no-fork
+            elif echo "$item" | jq -e 'has("cask")' >/dev/null; then
+              name=$(echo "$item" | jq -r '.cask')
+              version=$(echo "$item" | jq -r '.version.latest')
+              echo "bump cask: $name $version"
+              brew bump-cask-pr "$name" --version "$version" --no-browse --no-fork
+            else
+              echo "invalid type $item"
+            fi
+          done
