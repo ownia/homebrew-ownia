@@ -6,6 +6,11 @@ class Parallax < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/ownia/Parallax.git", branch: "main"
 
+  bottle do
+    root_url "https://github.com/ownia/homebrew-ownia/releases/download/parallax-0.0.1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "34807d0da030a5ef2b6f63596366462fae2d2636af5b3e2689681acc2d37dfaf"
+  end
+
   depends_on xcode: ["15.0", :build]
   depends_on macos: :ventura
 
