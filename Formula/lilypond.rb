@@ -15,8 +15,8 @@ class Lilypond < Formula
   ]
 
   bottle do
-    root_url "https://github.com/ownia/homebrew-ownia/releases/download/lilypond-2.25.31"
-    sha256 arm64_sonoma: "49685df8f0b32bb6a03f6e8897b2f6c2ab2abb6220e73f789383550b598a1da9"
+    root_url "https://github.com/ownia/homebrew-ownia/releases/download/lilypond-2.25.32"
+    sha256 arm64_tahoe: "5b361b1dcb94694d8368efa20d14eaa52176b4bc8782ff7acc64347131049cfe"
   end
 
   depends_on "autoconf" => :build
