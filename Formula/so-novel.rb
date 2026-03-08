@@ -1,8 +1,8 @@
 class SoNovel < Formula
   desc "Novel download tool"
   homepage "https://github.com/freeok/so-novel"
-  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.9.8.tar.gz"
-  sha256 "1b57cbab87dffc1838ee0c77a562e9b4bf988851b826e49fc8255b1955516760"
+  url "https://github.com/freeok/so-novel/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "90598643e8457664e71a5eb795e2a58e915bb28572876486e33c5ecb4407708b"
   license "AGPL-3.0-only"
 
   bottle do
@@ -16,7 +16,7 @@ class SoNovel < Formula
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
     system "mvn", "clean", "package", "-Dmaven.test.skip=true", "-DjrePath=runtime"
-    cp "bundle/rules/main-rules.json", "#{prefix}/main-rules.json"
+    cp "bundle/rules/main.json", "#{prefix}/main.json"
     cp "bundle/config.ini", "#{prefix}/config.ini"
     inreplace "#{prefix}/config.ini", /^active-rules\s*=\s*.*$/, "active-rules = #{prefix}/main-rules.json"
     cp "target/app-jar-with-dependencies.jar", "#{prefix}/app.jar"
