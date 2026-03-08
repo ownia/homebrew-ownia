@@ -1,8 +1,8 @@
 class Lilypond < Formula
   desc "Music engraving system"
   homepage "https://lilypond.org"
-  url "https://gitlab.com/lilypond/lilypond/-/archive/v2.25.34/lilypond-v2.25.34.tar.gz"
-  sha256 "89f995524bbbaa050df86274c93de4600d80f1ac9969bc24bdf50ad1c97f3d5e"
+  url "https://gitlab.com/lilypond/lilypond/-/archive/v2.25.35/lilypond-v2.25.35.tar.gz"
+  sha256 "4430f4cf89d95f61402bd4f91fe7c1da335661d74c770e3885af21358819a092"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-3.0-only",
@@ -38,7 +38,7 @@ class Lilypond < Formula
   depends_on "harfbuzz"
   depends_on "libpng"
   depends_on "pango"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
