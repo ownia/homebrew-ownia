@@ -16,7 +16,7 @@ class SoNovel < Formula
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
     system "mvn", "clean", "package", "-Dmaven.test.skip=true", "-DjrePath=runtime"
-    cp "bundle/rules/main.json", "#{prefix}/main.json"
+    cp "bundle/rules/main.json", "#{prefix}/main-rules.json"
     cp "bundle/config.ini", "#{prefix}/config.ini"
     inreplace "#{prefix}/config.ini", /^active-rules\s*=\s*.*$/, "active-rules = #{prefix}/main-rules.json"
     cp "target/app-jar-with-dependencies.jar", "#{prefix}/app.jar"
