@@ -1,10 +1,14 @@
 cask "xquartz" do
-  version "2.8.6_beta4"
-  sha256 "498e1db6824b4bc23256e25a4b3a008397a8b5770b3ed9527c3fb93fb5a00ae4"
+  version do
+    url "https://www.xquartz.org/releases/sparkle-r1/beta.xml"
+    strategy :sparkle do |item|
+      item.short_version.delete_prefix("XQuartz-")
+    end
+  end
 
-  url "https://github.com/XQuartz/XQuartz/releases/download/XQuartz-#{version}/XQuartz-#{version}.pkg",
-      verified: "github.com/XQuartz/XQuartz/"
-  name "XQuartz"
+  url "https://www.xquartz.org/releases/sparkle-r1/beta.xml",
+      verified: "www.xquartz.org/",
+      strategy: :sparkle, &:url
   desc "Open-source version of the X.Org X Window System"
   homepage "https://www.xquartz.org/"
 
