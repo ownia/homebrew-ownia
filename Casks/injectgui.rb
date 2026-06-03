@@ -13,5 +13,7 @@ cask "injectgui" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   app "InjectGUI.app"
 end

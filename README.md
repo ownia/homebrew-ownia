@@ -2,6 +2,12 @@
 
 More recipes are welcome.
 
+### Tap Trust
+```bash
+brew tap ownia/ownia
+brew trust ownia/ownia
+```
+
 ### Casks
 ```
 InjectGUI
