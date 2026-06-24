@@ -51,12 +51,22 @@ jobs:
               name=$(echo "$item" | jq -r '.formula')
               version=$(echo "$item" | jq -r '.version.latest')
               echo "bump formula: $name $version"
-              brew bump-formula-pr "$name" --version "$version" --no-browse --no-fork
+              extra_args=()
+              if echo "$version" | grep -qiE '(alpha|beta|rc|dev|pre|snapshot|_)'; then
+                echo "version $version is a pre-release, skipping audit"
+                extra_args+=("--no-audit")
+              fi
+              brew bump-formula-pr "$name" --version "$version" --no-browse --no-fork "${extra_args[@]}"
             elif echo "$item" | jq -e 'has("cask")' >/dev/null; then
               name=$(echo "$item" | jq -r '.cask')
               version=$(echo "$item" | jq -r '.version.latest')
               echo "bump cask: $name $version"
-              brew bump-cask-pr "$name" --version "$version" --no-browse --no-fork
+              extra_args=()
+              if echo "$version" | grep -qiE '(alpha|beta|rc|dev|pre|snapshot|_)'; then
+                echo "version $version is a pre-release, skipping audit"
+                extra_args+=("--no-audit")
+              fi
+              brew bump-cask-pr "$name" --version "$version" --no-browse --no-fork "${extra_args[@]}"
             else
               echo "invalid type $item"
             fi
