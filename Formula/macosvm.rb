@@ -6,8 +6,8 @@ class Macosvm < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    root_url "https://github.com/ownia/homebrew-ownia/releases/download/macosvm-0.2-2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "bc7a41f15201e449eeae2e4ac4e21368fdd63aeca3276a6b3c8d53a0964b0b67"
+    root_url "https://github.com/ownia/homebrew-ownia/releases/download/macosvm-0.2-3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "639393788582e0e93505e4f50e5a5eb0f0baf7625ddd032209914e8067ba1d21"
   end
 
   depends_on "make" => :build
