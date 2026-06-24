@@ -14,13 +14,13 @@ class SoNovel < Formula
   depends_on "openjdk@21"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@21")
     system "mvn", "clean", "package", "-Dmaven.test.skip=true", "-DjrePath=runtime"
     cp "bundle/rules/main.json", "#{prefix}/main.json"
     cp "bundle/config.ini", "#{prefix}/config.ini"
     inreplace "#{prefix}/config.ini", /^active-rules\s*=\s*.*$/, "active-rules = #{prefix}/main.json"
     cp "target/app-jar-with-dependencies.jar", "#{prefix}/app.jar"
-    java = Formula["openjdk@21"].opt_prefix/"bin/java"
+    java = formula_opt_prefix("openjdk@21")/"bin/java"
     (prefix/"bin/so-novel").write <<~EOS
       #!/bin/bash
       #{java} -Dconfig.file=#{prefix}/config.ini -Dmode=tui -jar #{prefix}/app.jar "$@"
