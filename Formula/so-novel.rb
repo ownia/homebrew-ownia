@@ -6,8 +6,8 @@ class SoNovel < Formula
   license "AGPL-3.0-only"
 
   bottle do
-    root_url "https://github.com/ownia/homebrew-ownia/releases/download/so-novel-1.10.3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "a67d108ffdec1f634b6b4a668fb70c13f3133099cd9d4715a4e046f8f11b4afb"
+    root_url "https://github.com/ownia/homebrew-ownia/releases/download/so-novel-1.11.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "d8295db6f4ab4064f7267323f259556914a9716e3936a760c6527d8e6aa647cb"
   end
 
   depends_on "maven"
