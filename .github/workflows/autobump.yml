@@ -38,7 +38,7 @@ jobs:
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_GITHUB_API_TOKEN }}
           HOMEBREW_GIT_COMMITTER_NAME: Weizhao Ouyang
-          HOMEBREW_GIT_COMMITTER_EMAIL: ownia.ouyang@gmail.com
+          HOMEBREW_GIT_COMMITTER_EMAIL: o451686892@gmail.com
         run: |
           set -euo pipefail
 
