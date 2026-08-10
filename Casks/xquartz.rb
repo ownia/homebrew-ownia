@@ -1,6 +1,6 @@
 cask "xquartz" do
-  version "2.8.7_beta1"
-  sha256 "70653465845a2fe32188a1bdbab689a165b6900007431cbaf05f9911ac9ec5a4"
+  version "2.8.7_beta2"
+  sha256 "8cf6b548c982fec6267637900ce8d1a55034a4d23867e4a9d327737906d60a03"
 
   url "https://github.com/XQuartz/XQuartz/releases/download/XQuartz-#{version}/XQuartz-#{version}.pkg",
       verified: "github.com/XQuartz/XQuartz/"
