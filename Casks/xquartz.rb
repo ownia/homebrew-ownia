@@ -2,8 +2,7 @@ cask "xquartz" do
   version "2.8.7_beta3"
   sha256 "1bf4b63a30a7fdbbc34b708d3d966ec92c14400a719d004d466ccc1728f074ec"
 
-  url "https://github.com/XQuartz/XQuartz/releases/download/XQuartz-#{version}/XQuartz-#{version}.pkg",
-      verified: "github.com/XQuartz/XQuartz/"
+  url "https://github.com/XQuartz/XQuartz/releases/download/XQuartz-#{version}/XQuartz-#{version}.pkg"
   name "XQuartz"
   desc "Open-source version of the X.Org X Window System"
   homepage "https://www.xquartz.org/"
