@@ -13,6 +13,7 @@ brew trust ownia/ownia
 InjectGUI
 UEFITool
 XQuartz - Beta Channel
+CorosLink
 ```
 
 ### Formula
