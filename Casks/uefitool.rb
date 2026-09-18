@@ -7,7 +7,7 @@ cask "uefitool" do
   desc "UEFI firmware image viewer and editor"
   homepage "https://github.com/LongSoft/UEFITool"
 
-  depends_on macos: :big_sur
+  depends_on :macos
 
   app "UEFITool.app"
 end
