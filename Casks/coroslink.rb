@@ -1,6 +1,6 @@
 cask "coroslink" do
-  version "0.1.53"
-  sha256 "4339971defc9ce7f09745d04f1d0b13651e1ef58ebcee563d04b8b7d8fb82a3a"
+  version "0.1.58"
+  sha256 "417d7502dc3d54e309b141fa58b685896aaadc0c55b08728632191d3f279e3b2"
 
   url "https://github.com/JunAkerBuilds/CorosLink/releases/download/v#{version}/CorosLink-#{version}-arm64.dmg"
   name "CorosLink"
