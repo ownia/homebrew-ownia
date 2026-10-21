@@ -1,8 +1,8 @@
 class Lilypond < Formula
   desc "Music engraving system"
   homepage "https://lilypond.org"
-  url "https://gitlab.com/lilypond/lilypond/-/archive/v2.27.3/lilypond-v2.27.3.tar.gz"
-  sha256 "4736cf934432c395ae155512fd38b010210d35f3b3e793e2e0c3edf2ca6c0da3"
+  url "https://gitlab.com/lilypond/lilypond/-/archive/v2.27.4/lilypond-v2.27.4.tar.gz"
+  sha256 "0fb819b3335576efc112448871d8c82a6791f100707d84021a6ed74cbcc92c70"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-3.0-only",
