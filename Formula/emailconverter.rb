@@ -1,8 +1,8 @@
 class Emailconverter < Formula
   desc "Converts email files (eml, msg) to pdf"
   homepage "https://www.whitebyte.info/publications/eml-to-pdf-converter"
-  url "https://github.com/nickrussler/email-to-pdf-converter/releases/download/4.0.0/emailconverter-4.0.0-all.jar"
-  sha256 "89b34426d73493d17242292928e0a124a1d8c266b731b0be915c59f3ca632b10"
+  url "https://github.com/nickrussler/email-to-pdf-converter/releases/download/4.0.1/emailconverter-4.0.1-all.jar"
+  sha256 "3191f62feeeef5fbab20ee6944d06ecb69dd02a38f7be51631b2d716ec6ee73e"
   license "Apache-2.0"
 
   bottle do
