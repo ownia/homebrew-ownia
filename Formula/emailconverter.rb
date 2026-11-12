@@ -6,8 +6,8 @@ class Emailconverter < Formula
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/ownia/homebrew-ownia/releases/download/emailconverter-4.0.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "01cde330991ee4a1c8ae4509b0cc1556516840388f877d4ccde75c4a6b493a06"
+    root_url "https://github.com/ownia/homebrew-ownia/releases/download/emailconverter-4.0.1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "07604d6ba353d9ece0eda1bca6968910bf45a37f9a4934ee9c71e2a8ee09b9d1"
   end
 
   depends_on "openjdk"
