@@ -64,7 +64,12 @@ class Lilypond < Formula
 
     elisp.install share.glob("emacs/site-lisp/*.el")
 
-    fonts = pkgshare/(build.head? ? File.read("out/VERSION").chomp : version)/"fonts/otf"
+    fonts_version = if build.head?
+      File.read("out/VERSION").chomp
+    else
+      version
+    end
+    fonts = pkgshare/fonts_version/"fonts/otf"
 
     resource("font-urw-base35").stage do
       ["C059", "NimbusMonoPS", "NimbusSans"].each do |name|
