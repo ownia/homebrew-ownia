@@ -16,7 +16,8 @@ class Lilypond < Formula
 
   bottle do
     root_url "https://github.com/ownia/homebrew-ownia/releases/download/lilypond-2.27.5"
-    sha256 arm64_tahoe: "36ee858d134cd436c5deb6d405f9f7d9f2d216cbaa785d0f096842f7aae3a638"
+    rebuild 1
+    sha256 arm64_tahoe: "e2681513980870e43598736762758c20c82a08b40dcc458b3b5c2b76f8e6292f"
   end
 
   depends_on "autoconf" => :build
@@ -64,7 +65,12 @@ class Lilypond < Formula
 
     elisp.install share.glob("emacs/site-lisp/*.el")
 
-    fonts = pkgshare/(build.head? ? File.read("out/VERSION").chomp : version)/"fonts/otf"
+    fonts_version = if build.head?
+      File.read("out/VERSION").chomp
+    else
+      version
+    end
+    fonts = pkgshare/fonts_version/"fonts/otf"
 
     resource("font-urw-base35").stage do
       ["C059", "NimbusMonoPS", "NimbusSans"].each do |name|
